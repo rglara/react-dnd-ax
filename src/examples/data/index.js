@@ -13,20 +13,20 @@ export const countries = [
     cities: [
       {
         name: 'Beijing 北京',
-        url_suffix: 'Beijing',
+        url_suffix: 'Beijing'
       },
       {
         name: 'Shanghai 上海',
-        url_suffix: 'Shanghai',
+        url_suffix: 'Shanghai'
       },
       {
         name: 'Zhangjiakou 张家口',
-        url_suffix: 'Zhangjiakou',
+        url_suffix: 'Zhangjiakou'
       },
       {
         name: 'Nanchang 南昌',
-        url_suffix: '南昌',
-      },
+        url_suffix: '南昌'
+      }
     ]
   },
   {
@@ -36,20 +36,20 @@ export const countries = [
     cities: [
       {
         name: 'Washington, D.C.',
-        url_suffix: 'Washington,_D.C.',
+        url_suffix: 'Washington,_D.C.'
       },
       {
         name: 'Austin',
-        url_suffix: 'Austin,_Texas',
+        url_suffix: 'Austin,_Texas'
       },
       {
         name: 'New York',
-        url_suffix: 'New_York',
+        url_suffix: 'New_York'
       },
       {
         name: 'Seattle',
-        url_suffix: 'Seattle',
-      },
+        url_suffix: 'Seattle'
+      }
     ]
   },
   {
@@ -59,20 +59,20 @@ export const countries = [
     cities: [
       {
         name: 'Berlin',
-        url_suffix: 'Berlin',
+        url_suffix: 'Berlin'
       },
       {
         name: 'Dresden',
-        url_suffix: 'Dresden',
+        url_suffix: 'Dresden'
       },
       {
         name: 'Munich',
-        url_suffix: 'Munich',
+        url_suffix: 'Munich'
       },
       {
         name: 'Frankfurt',
-        url_suffix: 'Frankfurt',
-      },
+        url_suffix: 'Frankfurt'
+      }
     ]
   },
   {
@@ -82,20 +82,20 @@ export const countries = [
     cities: [
       {
         name: 'London',
-        url_suffix: 'London',
+        url_suffix: 'London'
       },
       {
         name: 'Southampton',
-        url_suffix: 'Southampton',
+        url_suffix: 'Southampton'
       },
       {
         name: 'Manchester',
-        url_suffix: 'Manchester',
+        url_suffix: 'Manchester'
       },
       {
         name: 'Swansea',
-        url_suffix: 'Swansea',
-      },
+        url_suffix: 'Swansea'
+      }
     ]
   },
   {
@@ -105,20 +105,20 @@ export const countries = [
     cities: [
       {
         name: 'Wellington',
-        url_suffix: 'Wellington',
+        url_suffix: 'Wellington'
       },
       {
         name: 'Auckland',
-        url_suffix: 'Auckland',
+        url_suffix: 'Auckland'
       },
       {
         name: 'Queenstown',
-        url_suffix: 'Queenstown,_New_Zealand',
+        url_suffix: 'Queenstown,_New_Zealand'
       },
       {
         name: 'Dunedin',
-        url_suffix: 'Dunedin',
-      },
+        url_suffix: 'Dunedin'
+      }
     ]
   },
   {
@@ -128,20 +128,20 @@ export const countries = [
     cities: [
       {
         name: 'Zürich',
-        url_suffix: 'Zürich',
+        url_suffix: 'Zürich'
       },
       {
         name: 'Lucerne',
-        url_suffix: 'Lucerne',
+        url_suffix: 'Lucerne'
       },
       {
         name: 'Interlaken',
-        url_suffix: 'Interlaken',
+        url_suffix: 'Interlaken'
       },
       {
         name: 'Geneva',
-        url_suffix: 'Geneva',
-      },
+        url_suffix: 'Geneva'
+      }
     ]
-  },
+  }
 ]

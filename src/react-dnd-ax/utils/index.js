@@ -1,14 +1,13 @@
 export const moveItem = (itemArray, targetIndex, sourceIndex) => {
-
   const newArray = [
     ...itemArray.slice(0, sourceIndex),
-    ...itemArray.slice(sourceIndex + 1),
+    ...itemArray.slice(sourceIndex + 1)
   ]
 
   return [
     ...newArray.slice(0, targetIndex),
     itemArray[sourceIndex],
-    ...newArray.slice(targetIndex),
+    ...newArray.slice(targetIndex)
   ]
 }
 
