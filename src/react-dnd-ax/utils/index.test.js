@@ -1,3 +1,4 @@
+/* globals describe, it, expect */
 import { moveItem } from './index'
 
 describe('moveItem', () => {

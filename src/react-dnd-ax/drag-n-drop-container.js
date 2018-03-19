@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import KeyCode from './consts'
-import { moveItem } from './utils'
-import { getDisplayName, isEdge } from './utils'
+import { moveItem, getDisplayName, isEdge } from './utils'
 
 const SCROLL_RANGE = 150
 const SCROLL_ACC_PX = 10
@@ -19,10 +18,10 @@ const DragNDropContainer = (WrappedComponent) => {
       overIndex: -1,
       isKeyboardMoving: false,
       curPreview: '',
-      keyInsertIndex: -1,
+      keyInsertIndex: -1
     }
 
-    constructor(props) {
+    constructor (props) {
       super(props)
 
       this.actions = {
@@ -36,13 +35,13 @@ const DragNDropContainer = (WrappedComponent) => {
         onTouchMove: this.onTouchMove,
         onTouchDrop: this.onTouchDrop,
         onClickDrag: this.onClickDrag,
-        onKeyChangeOrder: this.onKeyChangeOrder,
+        onKeyChangeOrder: this.onKeyChangeOrder
       }
 
       this.clientY = 0
     }
 
-    componentDidMount() {
+    componentDidMount () {
       // to retrieve clientY in FF
       // https://stackoverflow.com/questions/887316/how-do-i-get-clientx-and-clienty-to-work-inside-my-drag-event-handler-on-firef
       window.addEventListener('dragover', this.setClientY)
@@ -54,13 +53,13 @@ const DragNDropContainer = (WrappedComponent) => {
       }, 0)
     }
 
-    componentWillUnmount() {
+    componentWillUnmount () {
       window.removeEventListener('dragover', this.setClientY)
       window.removeEventListener('click', this.leaveKeyboardMoving)
     }
 
     // we don't have to render the component for every onDragOver callback
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate (nextProps, nextState) {
       if (nextState.isDragging !== this.state.isDragging) { // deal with dragOver delay
         return true
       }
@@ -81,7 +80,7 @@ const DragNDropContainer = (WrappedComponent) => {
           isKeyboardMoving: false,
           sourceIndex: -1,
           keyInsertIndex: -1,
-          overIndex: -1,
+          overIndex: -1
         })
       }
     }
@@ -105,13 +104,13 @@ const DragNDropContainer = (WrappedComponent) => {
         if (this.scrollContainer) {
           this.scrollContainer.scrollTop -= SCROLL_ACC_PX
         } else {
-          scrollBy(0, 0 - SCROLL_ACC_PX)
+          window.scrollBy(0, 0 - SCROLL_ACC_PX)
         }
-      } else if (innerHeight - this.clientY < SCROLL_RANGE) {
+      } else if (window.innerHeight - this.clientY < SCROLL_RANGE) {
         if (this.scrollContainer) {
           this.scrollContainer.scrollTop += SCROLL_ACC_PX
         } else {
-          scrollBy(0, SCROLL_ACC_PX)
+          window.scrollBy(0, SCROLL_ACC_PX)
         }
       }
     }
@@ -125,12 +124,12 @@ const DragNDropContainer = (WrappedComponent) => {
        * See https://stackoverflow.com/questions/19639969/html5-dragend-event-firing-immediately
        */
       setTimeout(() => {
-          this.setState({
-              isDragging: true,
-              isKeyboardMoving: false,
-              sourceIndex: index,
-              overIndex: -1,
-          })
+        this.setState({
+          isDragging: true,
+          isKeyboardMoving: false,
+          sourceIndex: index,
+          overIndex: -1
+        })
       })
     }
 
@@ -141,7 +140,7 @@ const DragNDropContainer = (WrappedComponent) => {
           isDragging: false,
           isKeyboardMoving: false,
           sourceIndex: -1,
-          overIndex: -1,
+          overIndex: -1
         })
       }
     }
@@ -166,7 +165,7 @@ const DragNDropContainer = (WrappedComponent) => {
       }
       this.setState({
         lastOverIndex: parseInt(e.target.dataset.position, 10),
-        overIndex: newOver,
+        overIndex: newOver
       })
     }
 
@@ -179,7 +178,7 @@ const DragNDropContainer = (WrappedComponent) => {
             (this.state.sourceIndex + 1) !== currentPosition)) {
         this.setState({
           lastOverIndex: currentPosition,
-          overIndex: -1,
+          overIndex: -1
         })
       }
     }
@@ -196,7 +195,7 @@ const DragNDropContainer = (WrappedComponent) => {
         }
         this.setState({
           lastOverIndex: index,
-          overIndex: newOver,
+          overIndex: newOver
         })
       } else {
         this.onDragLeave(e)
@@ -212,13 +211,13 @@ const DragNDropContainer = (WrappedComponent) => {
         if (this.scrollContainer) {
           this.scrollContainer.scrollTop -= SCROLL_ACC_PX
         } else {
-          scrollBy(0, 0 - SCROLL_ACC_PX)
+          window.scrollBy(0, 0 - SCROLL_ACC_PX)
         }
-      } else if (innerHeight - touchPoint.clientY < SCROLL_RANGE) {
+      } else if (window.innerHeight - touchPoint.clientY < SCROLL_RANGE) {
         if (this.scrollContainer) {
           this.scrollContainer.scrollTop += SCROLL_ACC_PX
         } else {
-          scrollBy(0, SCROLL_ACC_PX)
+          window.scrollBy(0, SCROLL_ACC_PX)
         }
       }
     }
@@ -240,7 +239,7 @@ const DragNDropContainer = (WrappedComponent) => {
         isKeyboardMoving: true,
         sourceIndex: index,
         keyInsertIndex: index,
-        curPreview: preview,
+        curPreview: preview
       })
     }
 
@@ -262,19 +261,19 @@ const DragNDropContainer = (WrappedComponent) => {
               isKeyboardMoving: false,
               sourceIndex: -1,
               keyInsertIndex: -1,
-              curPreview: '',
+              curPreview: ''
             })
             break
           }
           case KeyCode.ARROW_UP: {
             this.setState((prevState) => {
-                return { keyInsertIndex: (prevState.keyInsertIndex > 0) ? prevState.keyInsertIndex - 1: 0 }
+              return { keyInsertIndex: (prevState.keyInsertIndex > 0) ? prevState.keyInsertIndex - 1 : 0 }
             })
             break
           }
           case KeyCode.ARROW_DOWN: {
             this.setState((prevState) => {
-              return { keyInsertIndex: (prevState.keyInsertIndex < (items.length - 2)) ? prevState.keyInsertIndex + 1: items.length - 1 }
+              return { keyInsertIndex: (prevState.keyInsertIndex < (items.length - 2)) ? prevState.keyInsertIndex + 1 : items.length - 1 }
             })
             break
           }
@@ -284,12 +283,12 @@ const DragNDropContainer = (WrappedComponent) => {
       }
     }
 
-    render() {
+    render () {
       return (
         <div ref={(ref) => {
           this.containerRef = ref
         }}>
-          <div className="dnd-drag-placeholder" />
+          <div className='dnd-drag-placeholder' />
           <WrappedComponent
             {...this.props}
             state={this.state}
@@ -300,14 +299,13 @@ const DragNDropContainer = (WrappedComponent) => {
         </div>
       )
     }
-
   }
 
   Wrapper.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     onReorderItem: PropTypes.func.isRequired,
     boundingElementId: PropTypes.string,
-    scrollContainerId: PropTypes.string,
+    scrollContainerId: PropTypes.string
   }
 
   Wrapper.displayName = `DragNDropContainer(${getDisplayName(WrappedComponent)})`

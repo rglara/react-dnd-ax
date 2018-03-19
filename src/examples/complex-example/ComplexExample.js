@@ -9,7 +9,7 @@ import './ComplexExample.css'
 
 class ComplexExample extends React.Component {
   state = {
-    countries: countries,
+    countries: countries
   }
 
   onReorderCountries = (newOrderCountries) => {
@@ -18,7 +18,7 @@ class ComplexExample extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const ModuleItem = DragNDropItem(Country) // Country is your existing component
 
     const CountryList = DragNDropContainer((props) => {
@@ -40,11 +40,11 @@ class ComplexExample extends React.Component {
     })
 
     return (
-      <div id="complex-container" className="container">
+      <div id='complex-container' className='container'>
         <CountryList
           items={this.state.countries}
           onReorderItem={this.onReorderCountries}
-          scrollContainerId="complex-container"
+          scrollContainerId='complex-container'
         />
       </div>
     )

@@ -51,7 +51,7 @@ module.exports = function (env) {
     },
     plugins: (minify) ? plugins.minify : plugins.default,
     resolve: {
-    		extensions: ['.js', '.jsx', '.scss']
+      extensions: ['.js', '.jsx', '.scss']
     },
     module: {
       loaders: [

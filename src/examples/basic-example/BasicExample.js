@@ -9,7 +9,7 @@ import './basic-example.css'
 
 class BasicExample extends React.Component {
   state = {
-    items: basicItems,
+    items: basicItems
   }
 
   onReorderLinks = (newItems) => {
@@ -18,31 +18,31 @@ class BasicExample extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const BasicItem = DragNDropItem(({item, itemRef, dragPointRef}) => {
       return (
         <div
-          className="item-row"
+          className='item-row'
           ref={itemRef} // mandatory: put this attribute to the container element of the movable item
         >
-            <span className="text">{item.text}</span>
-            <div // mandatory if supporting FireFox. FireFox does not support dragstart event on buttons.
-              ref={dragPointRef} // mandatory: put this attribute to the drag handler
-              className="drag-point"
-              draggable // mandatory HTML attribute for drag handler
-              tabIndex="0" // mandatory HTML attribute, make it possible to focus on the drag handler
-              title="Drag this link to reorder the item" // AX title
-              role="button" // mandatory if element is not a button
-            >
-              <Icon name="arrows"/>
-            </div>
+          <span className='text'>{item.text}</span>
+          <div // mandatory if supporting FireFox. FireFox does not support dragstart event on buttons.
+            ref={dragPointRef} // mandatory: put this attribute to the drag handler
+            className='drag-point'
+            draggable // mandatory HTML attribute for drag handler
+            tabIndex='0' // mandatory HTML attribute, make it possible to focus on the drag handler
+            title='Drag this link to reorder the item' // AX title
+            role='button' // mandatory if element is not a button
+          >
+            <Icon name='arrows' />
+          </div>
         </div>
       )
     })
 
     const BasicList = DragNDropContainer((props) => {
       return (
-        <div id="modules-section">
+        <div id='modules-section'>
           {
             props.items.map((item, index) => {
               return <BasicItem
@@ -59,11 +59,11 @@ class BasicExample extends React.Component {
     })
 
     return (
-      <div id="basic-container" className="container">
+      <div id='basic-container' className='container'>
         <BasicList
           items={this.state.items}
           onReorderItem={this.onReorderLinks}
-          scrollContainerId="basic-container"
+          scrollContainerId='basic-container'
         />
       </div>
     )
