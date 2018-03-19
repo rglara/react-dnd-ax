@@ -66,6 +66,7 @@
     "react-fa": "4.2.0",
     "rimraf": "2.6.1",
     "sass-loader": "6.0.6",
+    "standard": "^11.0.1",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
     "test-npm-upload": "1.0.6",
@@ -85,7 +86,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "demo:build": "build-storybook -c .storybook -o docs",
     "demo:build-temp": "build-storybook -c .storybook -o ../react-dnd-ax-demo/docs",
-    "test": "node scripts/test.js --env=jsdom",
+    "lint": "standard",
+    "test": "standard && node scripts/test.js --env=jsdom",
     "build": "npm run build:commonjs && npm run build:es6 && npm run build:umd && npm run npm:css",
     "build:commonjs": "npm run clean:commonjs && cross-env BABEL_ENV=commonjs babel src/react-dnd-ax --out-dir dist/commonjs --ignore *.example.js,*.test.js",
     "build:es6": "npm run clean:es6 && cross-env BABEL_ENV=es6 BABEL_DISABLE_CACHE=1 babel src/react-dnd-ax --out-dir dist/es6 --ignore *.test.js",
@@ -129,5 +131,10 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "standard": {
+    "ignore": [
+      "docs/"
+    ]
   }
 }
